@@ -33,15 +33,15 @@ export function HeroSection() {
         <div className="border-b border-border bg-background">
           <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 py-8 sm:flex-row sm:px-6 lg:px-8">
             <div className="text-center sm:text-left">
-              <p className="text-sm font-medium text-muted-foreground">Starting at</p>
-              <p className="text-4xl font-bold text-foreground">$275,000</p>
+              <p className="text-sm font-medium text-muted-foreground">Starting price · financing available</p>
+              <p className="text-4xl font-bold text-foreground">$63,900</p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Button size="lg" className="px-8">
-                Request Pricing
+                Request a Demo &amp; Quote
               </Button>
               <Button size="lg" variant="outline" className="px-8">
-                Call Sales
+                Call +1 (630) 812-7865
               </Button>
             </div>
           </div>
