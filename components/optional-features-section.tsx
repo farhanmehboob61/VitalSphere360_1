@@ -163,10 +163,12 @@ export function OptionalFeaturesSection() {
 
             <div className="order-1 overflow-hidden rounded-xl border border-border bg-background lg:order-2">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Lightweight%20High-Flow%20BIBS%20Oxygen%20Delivery%20System.png-asjQp19V3SJ8wHjpe1f3HrC6m4AHIc.jpeg"
+                src="/images/bibs-mask.png"
                 alt="Lightweight high-flow BIBS oxygen delivery system — man wearing oxygen mask with CO2 release and oxygen inlet schematic components, blue and silver tubing"
                 width={690}
                 height={565}
+                loading="lazy"
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 className="h-auto w-full object-contain"
               />
             </div>
@@ -181,6 +183,8 @@ export function OptionalFeaturesSection() {
                 alt="Starlight simulated ceiling inside the hyperbaric chamber — a night-sky panel with stars, the Milky Way, and a galaxy above quilted interior padding and a touchscreen control panel"
                 width={1024}
                 height={1024}
+                loading="lazy"
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 className="h-auto w-full object-cover"
               />
             </div>

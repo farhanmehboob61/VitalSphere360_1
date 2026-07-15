@@ -54,6 +54,8 @@ export function InteriorLiningSection() {
                   alt={option.alt}
                   width={512}
                   height={512}
+                  loading="lazy"
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                   className="h-full w-full object-cover"
                 />
               </div>
