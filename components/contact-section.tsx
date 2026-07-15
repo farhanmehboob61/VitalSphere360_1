@@ -75,6 +75,7 @@ export function ContactSection() {
             ref={containerRef}
             style={{ height: "845px" }}
             className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm"
+            suppressHydrationWarning
           >
             {showForm ? (
               <iframe
