@@ -85,10 +85,12 @@ export function FeaturesSection() {
           <div className="grid items-center gap-6 p-4 sm:gap-8 sm:p-8 lg:grid-cols-2 lg:gap-12">
             <div className="overflow-hidden rounded-xl border border-border bg-background">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Intuitive%20high-definition%20internal%20touchscreen-vW0L2jcizS1xKCo6veYZWubw5R6EmV.png"
+                src="/images/internal-touchscreen.png"
                 alt="Intuitive high-definition internal touchscreen user interface mounted inside the chamber — showing session timer, real-time temperature, oxygen, humidity and pressure readouts, one-touch ATA pressure selection, and chamber controls"
                 width={1200}
                 height={620}
+                loading="lazy"
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 className="h-auto w-full object-cover"
               />
             </div>
@@ -147,6 +149,8 @@ export function FeaturesSection() {
                       alt={feature.title}
                       width={600}
                       height={400}
+                      loading="lazy"
+                      sizes="(min-width: 1024px) 50vw, 100vw"
                       className="h-48 w-full object-cover sm:h-64 lg:h-auto"
                     />
                   </div>

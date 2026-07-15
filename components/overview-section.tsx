@@ -22,8 +22,9 @@ export function OverviewSection() {
               alt="Vital Sphere 360 hyperbaric chamber — white upright hard shell with control panel and interior premium seating"
               width={500}
               height={600}
+              loading="lazy"
+              sizes="(min-width: 1024px) 40vw, (min-width: 640px) 24rem, 20rem"
               className="h-auto w-full max-w-xs object-contain sm:max-w-sm lg:max-w-md"
-              priority
             />
           </div>
 

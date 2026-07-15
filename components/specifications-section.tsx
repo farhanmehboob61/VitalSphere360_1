@@ -128,6 +128,8 @@ export function SpecificationsSection() {
                   alt="Dual all-in-one smart controller unit"
                   width={1024}
                   height={1024}
+                  loading="lazy"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
                   className="h-auto w-full object-contain"
                 />
               </div>
@@ -147,6 +149,8 @@ export function SpecificationsSection() {
               alt="Air conditioning unit — glossy black portable cabinet on casters with touchscreen control panel, side handles, and perforated ventilation grilles"
               width={1024}
               height={1024}
+              loading="lazy"
+              sizes="(min-width: 1024px) 50vw, 100vw"
               className="h-auto w-full object-contain"
             />
           </div>
@@ -207,6 +211,8 @@ export function SpecificationsSection() {
               alt="Certification marks — CE, ISO 9001:2015, ISO 14001:2015, and ISO 13485 Quality Management System"
               width={1200}
               height={140}
+              loading="lazy"
+              sizes="(min-width: 640px) 36rem, 28rem"
               className="h-auto w-full max-w-md flex-1 object-contain sm:max-w-xl"
             />
             <Image

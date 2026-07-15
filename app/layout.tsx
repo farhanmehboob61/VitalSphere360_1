@@ -1,5 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import { GoogleAnalytics } from '@next/third-parties/google'
+import Script from 'next/script'
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
@@ -46,14 +47,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} bg-background light`}>
-      <head>
-        <script src="https://link.msgsndr.com/js/form_embed.js" async></script>
-      </head>
       <body className="font-sans antialiased">
         {children}
+        <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
-      <GoogleAnalytics gaId="G-K443MH7SVM" />
+      {process.env.NODE_ENV === 'production' && <GoogleAnalytics gaId="G-K443MH7SVM" />}
     </html>
   )
 }

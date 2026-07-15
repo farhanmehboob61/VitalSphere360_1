@@ -1,4 +1,7 @@
-import { Phone, Mail } from "lucide-react"
+"use client"
+
+import { useEffect, useRef, useState } from "react"
+import { Phone, Mail, Check, Loader2 } from "lucide-react"
 
 const highlights = [
   "Free consultation & live demo",
@@ -8,6 +11,27 @@ const highlights = [
 ]
 
 export function ContactSection() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [showForm, setShowForm] = useState(false)
+
+  useEffect(() => {
+    const el = containerRef.current
+    if (!el || showForm) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setShowForm(true)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: "400px" }
+    )
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [showForm])
+
   return (
     <section id="contact" className="border-b border-border bg-primary">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
@@ -27,8 +51,8 @@ export function ContactSection() {
             <ul className="grid gap-3">
               {highlights.map((item) => (
                 <li key={item} className="flex items-center gap-3 text-sm font-medium text-white">
-                  <span className="flex size-5 items-center justify-center rounded-full bg-white/20 text-white">
-                    <span className="text-xs">✓</span>
+                  <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-white/20 text-white">
+                    <Check className="size-3.5" aria-hidden="true" />
                   </span>
                   {item}
                 </li>
@@ -47,24 +71,36 @@ export function ContactSection() {
             </div>
           </div>
 
-          <div style={{ height: "845px" }} className="rounded-2xl border border-border bg-card shadow-sm overflow-hidden">
-            <iframe
-              src="https://api.leadconnectorhq.com/widget/form/q7Cvk9Q8jvezhlCf06SP"
-              style={{ width: "100%", height: "100%", border: "none", borderRadius: "5px" }}
-              id="inline-q7Cvk9Q8jvezhlCf06SP"
-              data-layout={JSON.stringify({ id: "INLINE" })}
-              data-trigger-type="alwaysShow"
-              data-trigger-value=""
-              data-activation-type="alwaysActivated"
-              data-activation-value=""
-              data-deactivation-type="neverDeactivate"
-              data-deactivation-value=""
-              data-form-name="Vital Sphere new page"
-              data-height="845"
-              data-layout-iframe-id="inline-q7Cvk9Q8jvezhlCf06SP"
-              data-form-id="q7Cvk9Q8jvezhlCf06SP"
-              title="Vital Sphere new page"
-            />
+          <div
+            ref={containerRef}
+            style={{ height: "845px" }}
+            className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm"
+          >
+            {showForm ? (
+              <iframe
+                src="https://api.leadconnectorhq.com/widget/form/q7Cvk9Q8jvezhlCf06SP"
+                loading="lazy"
+                style={{ width: "100%", height: "100%", border: "none", borderRadius: "5px" }}
+                id="inline-q7Cvk9Q8jvezhlCf06SP"
+                data-layout={JSON.stringify({ id: "INLINE" })}
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="Vital Sphere new page"
+                data-height="845"
+                data-layout-iframe-id="inline-q7Cvk9Q8jvezhlCf06SP"
+                data-form-id="q7Cvk9Q8jvezhlCf06SP"
+                title="Vital Sphere new page"
+              />
+            ) : (
+              <div className="flex h-full w-full items-center justify-center">
+                <Loader2 className="size-6 animate-spin text-muted-foreground" aria-hidden="true" />
+                <span className="sr-only">Loading contact form…</span>
+              </div>
+            )}
           </div>
         </div>
       </div>
