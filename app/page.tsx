@@ -1,17 +1,36 @@
+import dynamic from "next/dynamic"
 import { AnnouncementBar } from "@/components/announcement-bar"
 import { SiteHeader } from "@/components/site-header"
 import { HeroSection } from "@/components/hero-section"
 import { OverviewSection } from "@/components/overview-section"
-import { BenefitsSection } from "@/components/benefits-section"
-import { FeaturesSection } from "@/components/features-section"
-import { SpecificationsSection } from "@/components/specifications-section"
-import { OptionalFeaturesSection } from "@/components/optional-features-section"
-import { InteriorLiningSection } from "@/components/interior-lining-section"
-import { TestimonialsSection } from "@/components/testimonials-section"
-import { ReviewsSection } from "@/components/reviews-section"
-import { FinancingSection } from "@/components/financing-section"
-import { ContactSection } from "@/components/contact-section"
-import { SiteFooter } from "@/components/site-footer"
+
+// Below-fold sections are code-split so their JavaScript (including the
+// interactive carousel, control-panel viewer, and slideshow) is not parsed or
+// hydrated on the initial main-thread pass, reducing Total Blocking Time.
+const FeaturesSection = dynamic(() =>
+  import("@/components/features-section").then((m) => m.FeaturesSection)
+)
+const OptionalFeaturesSection = dynamic(() =>
+  import("@/components/optional-features-section").then((m) => m.OptionalFeaturesSection)
+)
+const InteriorLiningSection = dynamic(() =>
+  import("@/components/interior-lining-section").then((m) => m.InteriorLiningSection)
+)
+const SpecificationsSection = dynamic(() =>
+  import("@/components/specifications-section").then((m) => m.SpecificationsSection)
+)
+const FinancingSection = dynamic(() =>
+  import("@/components/financing-section").then((m) => m.FinancingSection)
+)
+const ReviewsSection = dynamic(() =>
+  import("@/components/reviews-section").then((m) => m.ReviewsSection)
+)
+const ContactSection = dynamic(() =>
+  import("@/components/contact-section").then((m) => m.ContactSection)
+)
+const SiteFooter = dynamic(() =>
+  import("@/components/site-footer").then((m) => m.SiteFooter)
+)
 
 export default function Page() {
   return (
