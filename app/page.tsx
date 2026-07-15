@@ -2,11 +2,12 @@ import dynamic from "next/dynamic"
 import { AnnouncementBar } from "@/components/announcement-bar"
 import { SiteHeader } from "@/components/site-header"
 import { HeroSection } from "@/components/hero-section"
-import { OverviewSection } from "@/components/overview-section"
 
-// Below-fold sections are code-split so their JavaScript (including the
-// interactive carousel, control-panel viewer, and slideshow) is not parsed or
-// hydrated on the initial main-thread pass, reducing Total Blocking Time.
+// All below-fold sections are code-split to keep the initial JS bundle small
+// and reduce Time to Interactive / Total Blocking Time on mobile.
+const OverviewSection = dynamic(() =>
+  import("@/components/overview-section").then((m) => m.OverviewSection)
+)
 const FeaturesSection = dynamic(() =>
   import("@/components/features-section").then((m) => m.FeaturesSection)
 )
