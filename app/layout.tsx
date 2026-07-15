@@ -46,6 +46,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} bg-background light`}>
+      <head>
+        <script src="https://link.msgsndr.com/js/form_embed.js" async></script>
+      </head>
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

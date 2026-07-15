@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
   return (
-    <section id="top" className="overflow-hidden border-b border-border bg-background">
+    <section id="overview" className="overflow-hidden border-b border-border bg-background">
       <div className="relative w-full">
         {/* Hero Image Container - Full Width */}
         <div className="relative w-full bg-gradient-to-r from-blue-100 to-white">
@@ -37,11 +37,11 @@ export function HeroSection() {
               <p className="text-4xl font-bold text-foreground">$63,900</p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Button size="lg" className="px-8">
-                Request a Demo &amp; Quote
+              <Button size="lg" className="px-8" asChild>
+                <a href="#contact">Request a Demo &amp; Quote</a>
               </Button>
-              <Button size="lg" variant="outline" className="px-8">
-                Call +1 (630) 812-7865
+              <Button size="lg" variant="outline" className="px-8" asChild>
+                <a href="tel:+16308127865">Call +1 (630) 812-7865</a>
               </Button>
             </div>
           </div>

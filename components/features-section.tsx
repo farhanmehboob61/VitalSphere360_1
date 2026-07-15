@@ -27,54 +27,48 @@ const features = [
     title: "Advanced AI Touch Control",
     description:
       "Touchscreen control with interior and exterior digital displays showing pressure, temperature, humidity, and percent oxygenation. Internal controls are duplicated for safe operation from inside.",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Advanced%20AI%20Touch%20Control-kDC2ApRMmuO7SB4887OWMLy5OWlwnZ.png",
   },
   {
     icon: DoorOpen,
     title: "Easy-Slide Cabin Door",
     description:
       "Large polycarbonate sliding glass door for effortless entry and exit, activated by pressure with automatic release upon de-pressurization.",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Easy-Slide%20Cabin%20Door-pjbqO9Syj5xs10wpAXHj1LSo57mwXO.png",
   },
   {
     icon: Wind,
     title: "Dual All-in-One System",
     description:
       "Redundant dual 120 LPM compressors and dual 20 LPM oxygen concentrators with amplifiers — no external oxygen tank required.",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Dual%20All-in-One%20System-D5VOhKVXQycMHSfRinFXJyfdEAjRWa.png",
   },
   {
     icon: Snowflake,
     title: "Complimentary Air Conditioning",
     description:
       "Two-part climate control system with a built-in dehumidifier keeps every session at a comfortable, consistent temperature — included at no additional cost.",
-  },
-  {
-    icon: Gauge,
-    title: "Selectable Pressure Protocols",
-    description:
-      "Incremental intrasession selectable pressures of 1.3 / 1.6 / 1.8 / 2.0 ATA, plus optional programmed protocols simulating hypoxia and hyperoxia.",
-  },
-  {
-    icon: Zap,
-    title: "Grounding & Negative Ion Unit",
-    description:
-      "Integrated grounding mat mitigates EMF for a static-free session, while the negative ion system delivers the relaxing benefit of fresh, beach-like air.",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Complimentary%20Air%20Conditioning-e2kSHkR4w2DkzktsrW9CbE7B3WLvgs.png",
   },
   {
     icon: Waves,
     title: "Optional BIBS Mask System",
     description:
       "Keeps ambient oxygen low while maximizing delivery via facemask — also exhausting carbon dioxide to act as a CO2 scrubber.",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Optional%20BIBS%20Mask%20System.png-UfZxiqKAo0plkpaELJzXpsF6SZ0nNh.jpeg",
   },
   {
     icon: Volume2,
     title: "Noiseless Operation",
     description:
       "Noise-reduction technology and optional noiseless pressure relief valves keep operating sound below 60 dB for a calm environment.",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Noiseless%20Operation-s9nqiamv5WUXfbr41wLEmftbtSubqC.png",
   },
 ]
 
 export function FeaturesSection() {
   return (
-    <section id="features" className="border-b border-border bg-muted/40">
+    <section id="gallery" className="border-b border-border bg-muted/40">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-widest text-primary">Engineered Features</p>
@@ -91,7 +85,7 @@ export function FeaturesSection() {
           <div className="grid items-center gap-8 p-6 sm:p-8 lg:grid-cols-2 lg:gap-12">
             <div className="overflow-hidden rounded-xl border border-border bg-background">
               <Image
-                src="/images/internal-touchscreen.png"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Intuitive%20high-definition%20internal%20touchscreen-vW0L2jcizS1xKCo6veYZWubw5R6EmV.png"
                 alt="Intuitive high-definition internal touchscreen user interface mounted inside the chamber — showing session timer, real-time temperature, oxygen, humidity and pressure readouts, one-touch ATA pressure selection, and chamber controls"
                 width={1200}
                 height={620}
@@ -156,13 +150,19 @@ export function FeaturesSection() {
                     </p>
                   </div>
 
-                  {/* Placeholder for image - alternates sides */}
+                  {/* Feature image - alternates sides */}
                   <div
-                    className={`h-64 rounded-lg bg-primary/10 flex items-center justify-center text-muted-foreground ${
+                    className={`overflow-hidden rounded-lg border border-border bg-background ${
                       isEven ? "order-2 lg:order-2" : "order-1 lg:order-1"
                     }`}
                   >
-                    <span className="text-sm font-medium">Feature Image</span>
+                    <Image
+                      src={feature.image}
+                      alt={feature.title}
+                      width={600}
+                      height={400}
+                      className="h-auto w-full object-cover"
+                    />
                   </div>
                 </div>
               </div>

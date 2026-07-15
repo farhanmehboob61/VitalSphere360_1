@@ -163,8 +163,8 @@ export function OptionalFeaturesSection() {
 
             <div className="order-1 overflow-hidden rounded-xl border border-border bg-background lg:order-2">
               <Image
-                src="/images/bibs-mask.png"
-                alt="Lightweight high-flow BIBS oxygen delivery system — a user wearing a facemask connected to oxygen inlet and O2 release modules with dual-compatible tubing"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Lightweight%20High-Flow%20BIBS%20Oxygen%20Delivery%20System.png-asjQp19V3SJ8wHjpe1f3HrC6m4AHIc.jpeg"
+                alt="Lightweight high-flow BIBS oxygen delivery system — man wearing oxygen mask with CO2 release and oxygen inlet schematic components, blue and silver tubing"
                 width={690}
                 height={565}
                 className="h-auto w-full object-contain"

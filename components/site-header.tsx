@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/button"
 
 const navLinks = [
   { label: "Model", href: "#overview" },
-  { label: "Gallery", href: "#interior-lining" },
-  { label: "Technical Details", href: "#optional-features" },
-  { label: "Specifications", href: "#specifications" },
+  { label: "Gallery", href: "#gallery" },
+  { label: "Technical Details", href: "#specifications" },
+  { label: "Financing", href: "#financing" },
   { label: "Reviews", href: "#reviews" },
   { label: "Contact Sales", href: "#contact" },
 ]
@@ -18,24 +18,47 @@ export function SiteHeader() {
   const [activeSection, setActiveSection] = useState<string>("")
 
   useEffect(() => {
-    const sections = navLinks.map((link) => ({
-      id: link.href.replace("#", ""),
-      href: link.href,
-    }))
+    // Map nav links to actual section IDs
+    const sectionMap = {
+      "#overview": "overview",
+      "#gallery": "gallery",
+      "#specifications": "specifications",
+      "#financing": "financing",
+      "#reviews": "reviews",
+      "#contact": "contact",
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
+        // Find the most visible section
+        let mostVisibleEntry = null
+        let maxVisibility = 0
+
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(`#${entry.target.id}`)
+          const visibility = entry.intersectionRatio
+          if (visibility > maxVisibility) {
+            maxVisibility = visibility
+            mostVisibleEntry = entry
           }
         })
+
+        if (mostVisibleEntry && mostVisibleEntry.isIntersecting) {
+          const sectionId = mostVisibleEntry.target.id
+          // Find the matching href
+          const matchingHref = Object.entries(sectionMap).find(
+            ([_, id]) => id === sectionId
+          )?.[0]
+          if (matchingHref) {
+            setActiveSection(matchingHref)
+          }
+        }
       },
-      { threshold: 0.5 }
+      { threshold: [0, 0.25, 0.5, 0.75, 1] }
     )
 
-    sections.forEach((section) => {
-      const element = document.getElementById(section.id)
+    // Observe all mapped sections
+    Object.values(sectionMap).forEach((id) => {
+      const element = document.getElementById(id)
       if (element) observer.observe(element)
     })
 
@@ -45,7 +68,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-10 z-40 border-b border-border/60 bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/70">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <a href="#top" className="flex items-center" aria-label="Oxygen Health Systems home">
+        <a href="#overview" className="flex items-center" aria-label="Oxygen Health Systems home">
           <Image
             src="/images/oxygen-health-systems-logo-transparent.png"
             alt="Oxygen Health Systems"
