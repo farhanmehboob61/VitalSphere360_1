@@ -9,6 +9,7 @@ const navLinks = [
   { label: "Model", href: "#overview" },
   { label: "Gallery", href: "#gallery" },
   { label: "Technical Details", href: "#specifications" },
+  { label: "Financing", href: "#financing" },
   { label: "Reviews", href: "#reviews" },
   { label: "Contact Sales", href: "#contact" },
 ]
@@ -17,24 +18,47 @@ export function SiteHeader() {
   const [activeSection, setActiveSection] = useState<string>("")
 
   useEffect(() => {
-    const sections = navLinks.map((link) => ({
-      id: link.href.replace("#", ""),
-      href: link.href,
-    }))
+    // Map nav links to actual section IDs
+    const sectionMap = {
+      "#overview": "overview",
+      "#gallery": "gallery",
+      "#specifications": "specifications",
+      "#financing": "financing",
+      "#reviews": "reviews",
+      "#contact": "contact",
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
+        // Find the most visible section
+        let mostVisibleEntry = null
+        let maxVisibility = 0
+
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(`#${entry.target.id}`)
+          const visibility = entry.intersectionRatio
+          if (visibility > maxVisibility) {
+            maxVisibility = visibility
+            mostVisibleEntry = entry
           }
         })
+
+        if (mostVisibleEntry && mostVisibleEntry.isIntersecting) {
+          const sectionId = mostVisibleEntry.target.id
+          // Find the matching href
+          const matchingHref = Object.entries(sectionMap).find(
+            ([_, id]) => id === sectionId
+          )?.[0]
+          if (matchingHref) {
+            setActiveSection(matchingHref)
+          }
+        }
       },
-      { threshold: 0.5 }
+      { threshold: [0, 0.25, 0.5, 0.75, 1] }
     )
 
-    sections.forEach((section) => {
-      const element = document.getElementById(section.id)
+    // Observe all mapped sections
+    Object.values(sectionMap).forEach((id) => {
+      const element = document.getElementById(id)
       if (element) observer.observe(element)
     })
 

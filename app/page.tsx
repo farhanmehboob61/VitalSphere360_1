@@ -25,8 +25,8 @@ export default function Page() {
         <OptionalFeaturesSection />
         <InteriorLiningSection />
         <SpecificationsSection />
-        <ReviewsSection />
         <FinancingSection />
+        <ReviewsSection />
         <ContactSection />
       </main>
       <SiteFooter />

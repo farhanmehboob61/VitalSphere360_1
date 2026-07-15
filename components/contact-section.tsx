@@ -1,28 +1,4 @@
-"use client"
-
-import { useActionState } from "react"
-import { useFormStatus } from "react-dom"
-import { Phone, Mail, Check, Loader2 } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { submitQuote, type QuoteState } from "@/app/actions/submit-quote"
-
-const initialState: QuoteState = { status: "idle" }
-
-function SubmitButton() {
-  const { pending } = useFormStatus()
-  return (
-    <Button type="submit" size="lg" className="w-full" disabled={pending}>
-      {pending ? (
-        <>
-          <Loader2 className="size-4 animate-spin" aria-hidden="true" />
-          Sending…
-        </>
-      ) : (
-        "Request My Quote"
-      )}
-    </Button>
-  )
-}
+import { Phone, Mail } from "lucide-react"
 
 const highlights = [
   "Free consultation & live demo",
@@ -32,9 +8,6 @@ const highlights = [
 ]
 
 export function ContactSection() {
-  const [state, formAction] = useActionState(submitQuote, initialState)
-  const submitted = state.status === "success"
-
   return (
     <section id="contact" className="border-b border-border bg-primary">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
@@ -55,7 +28,7 @@ export function ContactSection() {
               {highlights.map((item) => (
                 <li key={item} className="flex items-center gap-3 text-sm font-medium text-white">
                   <span className="flex size-5 items-center justify-center rounded-full bg-white/20 text-white">
-                    <Check className="size-3.5" aria-hidden="true" />
+                    <span className="text-xs">✓</span>
                   </span>
                   {item}
                 </li>
@@ -74,102 +47,24 @@ export function ContactSection() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
-            {submitted ? (
-              <div className="flex h-full flex-col items-center justify-center gap-4 py-12 text-center">
-                <span className="flex size-14 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <Check className="size-7" aria-hidden="true" />
-                </span>
-                <h3 className="text-xl font-semibold">Thank you!</h3>
-                <p className="max-w-sm text-muted-foreground">
-                  Your request has been received. A hyperbaric specialist will contact you shortly with
-                  pricing and next steps.
-                </p>
-              </div>
-            ) : (
-              <form action={formAction} className="grid gap-5">
-                <div className="grid gap-2">
-                  <label htmlFor="name" className="text-sm font-medium text-white">
-                    Your name <span className="text-blue-200">*</span>
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    className="h-11 rounded-lg border border-input bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                  />
-                </div>
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <div className="grid gap-2">
-                    <label htmlFor="email" className="text-sm font-medium text-white">
-                      Email <span className="text-blue-200">*</span>
-                    </label>
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      className="h-11 rounded-lg border border-input bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                    />
-                  </div>
-                  <div className="grid gap-2">
-                    <label htmlFor="phone" className="text-sm font-medium text-white">
-                      Phone <span className="text-blue-200">*</span>
-                    </label>
-                    <input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      required
-                      className="h-11 rounded-lg border border-input bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                    />
-                  </div>
-                </div>
-                <div className="grid gap-2">
-                  <label htmlFor="model" className="text-sm font-medium text-white">
-                    Which model are you interested in? <span className="text-blue-200">*</span>
-                  </label>
-                  <select
-                    id="model"
-                    name="model"
-                    required
-                    defaultValue=""
-                    className="h-11 rounded-lg border border-input bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                  >
-                    <option value="" disabled>
-                      Select a model…
-                    </option>
-                    <option value="1 Piece VitalSphere for 1 Person">1 Piece VitalSphere for 1 Person</option>
-                    <option value="2 Piece VitalSphere for 1 Person">2 Piece VitalSphere for 1 Person</option>
-                    <option value="1 Piece VitalSphere for 2 People">1 Piece VitalSphere for 2 People</option>
-                    <option value="2 Piece VitalSphere for 2 People">2 Piece VitalSphere for 2 People</option>
-                  </select>
-                </div>
-                <div className="grid gap-2">
-                  <label htmlFor="message" className="text-sm font-medium text-white">
-                    How can we help?
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    placeholder="Tell us about your facility and requirements…"
-                    className="rounded-lg border border-input bg-background px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                  />
-                </div>
-                {state.status === "error" && (
-                  <p className="text-sm font-medium text-destructive" role="alert">
-                    {state.message}
-                  </p>
-                )}
-                <SubmitButton />
-                <p className="text-center text-xs leading-relaxed text-blue-100">
-                  These statements have not been evaluated by the Food and Drug Administration. This
-                  product is not intended to diagnose, treat, cure, or prevent any disease.
-                </p>
-              </form>
-            )}
+          <div style={{ height: "845px" }} className="rounded-2xl border border-border bg-card shadow-sm overflow-hidden">
+            <iframe
+              src="https://api.leadconnectorhq.com/widget/form/q7Cvk9Q8jvezhlCf06SP"
+              style={{ width: "100%", height: "100%", border: "none", borderRadius: "5px" }}
+              id="inline-q7Cvk9Q8jvezhlCf06SP"
+              data-layout={JSON.stringify({ id: "INLINE" })}
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="Vital Sphere new page"
+              data-height="845"
+              data-layout-iframe-id="inline-q7Cvk9Q8jvezhlCf06SP"
+              data-form-id="q7Cvk9Q8jvezhlCf06SP"
+              title="Vital Sphere new page"
+            />
           </div>
         </div>
       </div>
