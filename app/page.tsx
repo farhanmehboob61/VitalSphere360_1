@@ -21,12 +21,10 @@ export default function Page() {
       <main>
         <HeroSection />
         <OverviewSection />
-        <BenefitsSection />
         <FeaturesSection />
-        <SpecificationsSection />
         <OptionalFeaturesSection />
         <InteriorLiningSection />
-        <TestimonialsSection />
+        <SpecificationsSection />
         <ReviewsSection />
         <FinancingSection />
         <ContactSection />
