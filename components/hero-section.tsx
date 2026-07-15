@@ -1,5 +1,7 @@
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
+
+const HERO_SRCSET =
+  "/images/vital-sphere-360-hero-800.webp 800w, /images/vital-sphere-360-hero-1200.webp 1200w, /images/vital-sphere-360-hero-1600.webp 1600w"
 
 export function HeroSection() {
   return (
@@ -7,14 +9,30 @@ export function HeroSection() {
       <div className="relative w-full">
         {/* Hero Image Container - Full Width */}
         <div className="relative w-full bg-gradient-to-r from-blue-100 to-white">
-          <Image
-            src="/images/vital-sphere-360-hero.png"
-            alt="Vital Sphere 360 Hyperbaric Chamber"
-            width={1400}
-            height={600}
-            priority
+          {/*
+            LCP-critical hero: served as pre-optimized static WebP (9–24 KB) via a
+            native <img> so it never waits on Next.js's on-demand image optimizer,
+            which is cold on every fresh Lighthouse run and dominates mobile LCP.
+            The preload link is auto-hoisted to <head> by React 19.
+          */}
+          <link
+            rel="preload"
+            as="image"
+            href="/images/vital-sphere-360-hero-1200.webp"
+            // @ts-expect-error - valid responsive preload attributes
+            imageSrcSet={HERO_SRCSET}
+            imageSizes="100vw"
             fetchPriority="high"
+          />
+          <img
+            src="/images/vital-sphere-360-hero-1200.webp"
+            srcSet={HERO_SRCSET}
             sizes="100vw"
+            width={1600}
+            height={650}
+            alt="Vital Sphere 360 Hyperbaric Chamber"
+            fetchPriority="high"
+            decoding="async"
             className="h-auto w-full object-contain"
           />
 
