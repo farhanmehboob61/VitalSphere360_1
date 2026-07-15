@@ -1,3 +1,6 @@
+import Image from "next/image"
+import { ControlPanelViewer } from "@/components/control-panel-viewer"
+
 const stats = [
   { value: '67"', label: "Chamber Diameter" },
   { value: "1–2", label: "Seat Configuration" },
@@ -10,22 +13,39 @@ export function OverviewSection() {
   return (
     <section id="overview" className="border-b border-border bg-background">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary">The Overview</p>
-          <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight sm:text-4xl">
-            {"Experience the luxurious Vital Sphere 360 2.0 ATA hard-shell chamber"}
-          </h2>
-          <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-            A game-changer for healthcare providers and wellness centers offering advanced hyperbaric
-            oxygen therapy. The upright walk-in design comfortably fits one person with a high-end
-            reclining chair, or can be configured as a dual-seat setup. Its optional modular cabin ships
-            in two 31-inch sections to fit through standard U.S. doorways and most commercial elevators.
-            The 2.0 ATA rating safely increases oxygen delivery to tissues, supporting faster healing and
-            improved recovery across a wide range of conditions.
-          </p>
+        {/* Two-column layout: Image left, text right */}
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Left column: Chamber image */}
+          <div className="order-2 flex items-center justify-center rounded-lg bg-background lg:order-1">
+            <Image
+              src="/images/vital-sphere-360-chamber.png"
+              alt="Vital Sphere 360 hyperbaric chamber — white upright hard shell with control panel and interior premium seating"
+              width={500}
+              height={600}
+              className="h-auto w-full max-w-md object-contain"
+              priority
+            />
+          </div>
+
+          {/* Right column: Text content */}
+          <div className="order-1 lg:order-2">
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary">The Overview</p>
+            <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight sm:text-4xl">
+              {"Experience the luxurious Vital Sphere 360 2.0 ATA hard-shell chamber"}
+            </h2>
+            <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
+              A game-changer for healthcare providers and wellness centers offering advanced hyperbaric
+              oxygen therapy. The upright walk-in design comfortably fits one person with a high-end
+              reclining chair, or can be configured as a dual-seat setup. Its optional modular cabin ships
+              in two 31-inch sections to fit through standard U.S. doorways and most commercial elevators.
+              The 2.0 ATA rating safely increases oxygen delivery to tissues, supporting faster healing and
+              improved recovery across a wide range of conditions.
+            </p>
+          </div>
         </div>
       </div>
 
+      {/* Full-width stats row beneath both columns */}
       <div className="border-b border-border bg-background">
         <dl className="mx-auto flex max-w-7xl items-center justify-between divide-x divide-border px-4 py-12 sm:px-6 lg:px-8">
           {stats.map((stat) => (
