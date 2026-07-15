@@ -81,8 +81,8 @@ export function FeaturesSection() {
           </p>
         </div>
 
-        <div className="mt-12 overflow-hidden rounded-2xl border-2 border-blue-200 bg-card">
-          <div className="grid items-center gap-8 p-6 sm:p-8 lg:grid-cols-2 lg:gap-12">
+        <div className="mt-10 overflow-hidden rounded-2xl border-2 border-blue-200 bg-card">
+          <div className="grid items-center gap-6 p-4 sm:gap-8 sm:p-8 lg:grid-cols-2 lg:gap-12">
             <div className="overflow-hidden rounded-xl border border-border bg-background">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Intuitive%20high-definition%20internal%20touchscreen-vW0L2jcizS1xKCo6veYZWubw5R6EmV.png"
@@ -127,42 +127,41 @@ export function FeaturesSection() {
         </div>
 
         {/* Alternating Full-Width Feature Blocks */}
-        <div className="mt-12 space-y-0">
+        <div className="mt-10 space-y-0">
           {features.map((feature, idx) => {
             const isEven = idx % 2 === 0
             return (
               <div
                 key={feature.title}
-                className={`border-b border-border px-4 py-12 sm:px-6 lg:px-8 ${
+                className={`border-b border-border px-4 py-8 sm:px-6 sm:py-12 lg:px-8 ${
                   isEven ? "bg-background" : "bg-muted/40"
                 }`}
               >
-                <div className={`mx-auto max-w-7xl grid items-center gap-8 lg:grid-cols-2 lg:gap-12 ${isEven ? "" : "lg:grid-cols-2"}`}>
-                  <div className={isEven ? "order-1" : "order-2 lg:order-2"}>
-                    <div className="flex items-center gap-4">
-                      <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                        <feature.icon className="size-6" aria-hidden="true" />
-                      </span>
-                      <h3 className="text-xl font-bold tracking-tight">{feature.title}</h3>
-                    </div>
-                    <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-                      {feature.description}
-                    </p>
-                  </div>
-
-                  {/* Feature image - alternates sides */}
-                  <div
-                    className={`overflow-hidden rounded-lg border border-border bg-background ${
-                      isEven ? "order-2 lg:order-2" : "order-1 lg:order-1"
-                    }`}
-                  >
+                <div className="mx-auto grid max-w-7xl items-center gap-6 sm:gap-8 lg:grid-cols-2 lg:gap-12">
+                  {/* Image always on top on mobile; alternates on desktop */}
+                  <div className={`overflow-hidden rounded-lg border border-border bg-background ${
+                    isEven ? "lg:order-2" : "lg:order-1"
+                  }`}>
                     <Image
                       src={feature.image}
                       alt={feature.title}
                       width={600}
                       height={400}
-                      className="h-auto w-full object-cover"
+                      className="h-48 w-full object-cover sm:h-64 lg:h-auto"
                     />
+                  </div>
+
+                  {/* Text always below image on mobile; alternates on desktop */}
+                  <div className={isEven ? "lg:order-1" : "lg:order-2"}>
+                    <div className="flex items-center gap-3">
+                      <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary sm:size-12">
+                        <feature.icon className="size-5 sm:size-6" aria-hidden="true" />
+                      </span>
+                      <h3 className="text-lg font-bold tracking-tight sm:text-xl">{feature.title}</h3>
+                    </div>
+                    <p className="mt-3 text-pretty text-sm leading-relaxed text-muted-foreground sm:mt-4 sm:text-base">
+                      {feature.description}
+                    </p>
                   </div>
                 </div>
               </div>
