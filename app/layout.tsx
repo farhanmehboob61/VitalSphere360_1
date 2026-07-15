@@ -1,5 +1,4 @@
 import { Analytics } from '@vercel/analytics/next'
-import { GoogleAnalytics } from '@next/third-parties/google'
 import Script from 'next/script'
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
@@ -55,9 +54,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
         {children}
         <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        {process.env.NODE_ENV === 'production' && (
+          <>
+            <Analytics />
+            <Script
+              src="https://www.googletagmanager.com/gtag/js?id=G-K443MH7SVM"
+              strategy="lazyOnload"
+            />
+            <Script id="ga-inline" strategy="lazyOnload">
+              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-K443MH7SVM',{send_page_view:false});`}
+            </Script>
+          </>
+        )}
       </body>
-      {process.env.NODE_ENV === 'production' && <GoogleAnalytics gaId="G-K443MH7SVM" />}
     </html>
   )
 }
