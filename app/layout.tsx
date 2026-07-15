@@ -1,5 +1,4 @@
 import { Analytics } from '@vercel/analytics/next'
-import { GoogleAnalytics } from '@next/third-parties/google'
 import Script from 'next/script'
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
@@ -34,16 +33,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} bg-background light`}>
-      <head>
-        <Script id="gtm-script" strategy="afterInteractive">
+      <body className="font-sans antialiased">
+        {/*
+          GTM loaded with lazyOnload so the container's main-thread work runs
+          during idle time instead of competing with hydration — keeps it off the
+          Total Blocking Time critical path while still firing on every page load.
+        */}
+        <Script id="gtm-script" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-K289KFHV');`}
         </Script>
-      </head>
-      <body className="font-sans antialiased">
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-K289KFHV"
@@ -55,9 +57,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
         {children}
         <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        {process.env.NODE_ENV === 'production' && (
+          <>
+            <Analytics />
+            <Script
+              src="https://www.googletagmanager.com/gtag/js?id=G-K443MH7SVM"
+              strategy="lazyOnload"
+            />
+            <Script id="ga-inline" strategy="lazyOnload">
+              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-K443MH7SVM');`}
+            </Script>
+          </>
+        )}
       </body>
-      {process.env.NODE_ENV === 'production' && <GoogleAnalytics gaId="G-K443MH7SVM" />}
     </html>
   )
 }
