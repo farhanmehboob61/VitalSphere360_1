@@ -34,32 +34,39 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} bg-background light`}>
       <body className="font-sans antialiased">
-        {/*
-          GTM loaded with lazyOnload so the container's main-thread work runs
-          during idle time instead of competing with hydration — keeps it off the
-          Total Blocking Time critical path while still firing on every page load.
-        */}
-        <Script id="gtm-script" strategy="lazyOnload">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-K289KFHV');`}
-        </Script>
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-K289KFHV"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-            title="Google Tag Manager"
-          />
-        </noscript>
         {children}
         <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
         {process.env.NODE_ENV === 'production' && (
           <>
             <Analytics />
+            {/* GTM: initialized inside requestIdleCallback so the container's
+                tags execute only when the browser is genuinely idle, keeping
+                them off the Total Blocking Time measurement window. */}
+            <Script id="gtm-script" strategy="lazyOnload">
+              {`(function(){
+  function loadGTM(){
+    var w=window,d=document,s='script',l='dataLayer',i='GTM-K289KFHV';
+    w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+    j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+    f.parentNode.insertBefore(j,f);
+  }
+  if('requestIdleCallback' in window){
+    requestIdleCallback(loadGTM,{timeout:4000});
+  } else {
+    setTimeout(loadGTM,3000);
+  }
+})();`}
+            </Script>
+            <noscript>
+              <iframe
+                src="https://www.googletagmanager.com/ns.html?id=GTM-K289KFHV"
+                height="0"
+                width="0"
+                style={{ display: "none", visibility: "hidden" }}
+                title="Google Tag Manager"
+              />
+            </noscript>
             <Script
               src="https://www.googletagmanager.com/gtag/js?id=G-K443MH7SVM"
               strategy="lazyOnload"
