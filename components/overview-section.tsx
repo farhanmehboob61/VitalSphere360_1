@@ -2,11 +2,11 @@ import Image from "next/image"
 import { ControlPanelViewer } from "@/components/control-panel-viewer"
 
 const stats = [
-  { value: '67"', label: "Chamber Diameter" },
-  { value: "1–2", label: "Seat Configuration" },
-  { value: "2.0", label: "ATA Max Pressure" },
-  { value: "31\"", label: "Modular Section Width" },
-  { value: "95%", label: "Oxygen Delivery via 20 LPM Generator" },
+  { value: "6", label: "Wavelengths (635-940nm)" },
+  { value: "3,850", label: "High-Powered LEDs" },
+  { value: "100-150", label: "mW/cm² Irradiance (Adjustable)" },
+  { value: "0-30", label: "Session Timer (Minutes)" },
+  { value: "6-Year", label: "Warranty" },
 ]
 
 export function OverviewSection() {
@@ -19,7 +19,7 @@ export function OverviewSection() {
           <div className="order-2 flex items-center justify-center rounded-lg bg-background lg:order-1">
             <Image
               src="/images/vital-sphere-360-chamber.png"
-              alt="Vital Sphere 360 hyperbaric chamber — white upright hard shell with control panel and interior premium seating"
+              alt="MitoBooster XL red light therapy bed — professional-grade full-body red light and near-infrared therapy system"
               width={500}
               height={600}
               loading="lazy"
@@ -32,15 +32,13 @@ export function OverviewSection() {
           <div className="order-1 lg:order-2">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">The Overview</p>
             <h2 className="mt-3 text-balance text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">
-              {"Experience the luxurious Vital Sphere 360 2.0 ATA hard-shell chamber"}
+              Experience Advanced Whole-Body Red Light Therapy
             </h2>
             <p className="mt-4 text-pretty leading-relaxed text-muted-foreground sm:text-lg">
-              A game-changer for healthcare providers and wellness centers offering advanced hyperbaric
-              oxygen therapy. The upright walk-in design comfortably fits one person with a high-end
-              reclining chair, or can be configured as a dual-seat setup. Its optional modular cabin ships
-              in two 31-inch sections to fit through standard U.S. doorways and most commercial elevators.
-              The 2.0 ATA rating safely increases oxygen delivery to tissues, supporting faster healing and
-              improved recovery across a wide range of conditions.
+              The MitoBooster XL is a professional-grade red light therapy bed offering full-body coverage
+              through a 6-wavelength system (635nm–940nm), combining red light and near-infrared spectrums.
+              Unlike limited at-home devices or basic panels, it&apos;s engineered to optimize cellular function,
+              support recovery, and deliver comprehensive therapeutic coverage in a single session.
             </p>
           </div>
         </div>

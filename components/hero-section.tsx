@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 
-const HERO_SRCSET =
-  "/images/vital-sphere-360-hero-800.webp 800w, /images/vital-sphere-360-hero-1200.webp 1200w, /images/vital-sphere-360-hero-1600.webp 1600w"
+const HERO_IMG_SRC =
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/MitoBooster%20XL%20hero%20image-dYUy8WyHgSN3fA1a0oNUsyZX8kN0x4.png"
 
 export function HeroSection() {
   return (
@@ -10,27 +10,22 @@ export function HeroSection() {
         {/* Hero Image Container - Full Width */}
         <div className="relative w-full bg-gradient-to-r from-blue-100 to-white">
           {/*
-            LCP-critical hero: served as pre-optimized static WebP (9–24 KB) via a
-            native <img> so it never waits on Next.js's on-demand image optimizer,
-            which is cold on every fresh Lighthouse run and dominates mobile LCP.
+            LCP-critical hero: served as a direct external URL so it renders
+            immediately without waiting on Next.js's on-demand image optimizer.
             The preload link is auto-hoisted to <head> by React 19.
           */}
           <link
             rel="preload"
             as="image"
-            href="/images/vital-sphere-360-hero-1200.webp"
-            // @ts-expect-error - valid responsive preload attributes
-            imageSrcSet={HERO_SRCSET}
-            imageSizes="100vw"
+            href={HERO_IMG_SRC}
             fetchPriority="high"
           />
           <img
-            src="/images/vital-sphere-360-hero-1200.webp"
-            srcSet={HERO_SRCSET}
+            src={HERO_IMG_SRC}
             sizes="100vw"
             width={1600}
             height={650}
-            alt="Vital Sphere 360 Hyperbaric Chamber"
+            alt="MitoBooster XL Red Light Therapy Bed"
             fetchPriority="high"
             decoding="async"
             className="h-auto w-full object-contain"
@@ -40,7 +35,7 @@ export function HeroSection() {
           <div className="absolute left-3 top-3 flex flex-col gap-2 sm:left-6 sm:top-6">
             <div className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-1 text-xs font-semibold text-primary backdrop-blur-sm">
               <div className="size-1 rounded-full bg-primary" />
-              Walk-In Hard Shell
+              6-Wavelength Red Light Therapy Bed
             </div>
           </div>
         </div>
@@ -49,8 +44,8 @@ export function HeroSection() {
         <div className="border-b border-border bg-background">
           <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-6 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:px-6 sm:py-8 lg:px-8">
             <div>
-              <p className="text-sm font-medium text-muted-foreground">Starting price · financing available</p>
-              <p className="text-3xl font-bold text-foreground sm:text-4xl">$63,900</p>
+              <p className="text-sm font-medium text-muted-foreground">Starting price · Finance for as low as $1,301/mo</p>
+              <p className="text-3xl font-bold text-foreground sm:text-4xl">$59,900</p>
             </div>
             <div className="flex flex-col gap-2.5 sm:flex-row sm:gap-3">
               <Button size="lg" className="w-full sm:w-auto sm:px-8" asChild>
