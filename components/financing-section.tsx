@@ -5,13 +5,13 @@ const options = [
   {
     icon: CalendarClock,
     title: "6-Month Financing",
-    description: "Short-term financing to get your hyperbaric business up and running fast. Contact us for details.",
+    description: "Short-term financing to get your red light therapy offering up and running fast. Contact us for details.",
   },
   {
     icon: Building2,
     title: "Business Financing",
     description:
-      "Apply for business financing through our speedy-approval finance partner and spread the cost over flexible terms.",
+      "Finance as low as $1,301/mo through our speedy-approval business finance partner — spread the cost of your MitoBooster XL over flexible terms.",
   },
   {
     icon: UserRound,
@@ -23,7 +23,7 @@ const options = [
     icon: TrendingUp,
     title: "Strong ROI",
     description:
-      "Treating multiple patients per session boosts throughput and revenue, delivering a strong return on your investment.",
+      "Red light therapy sessions command premium pricing in wellness and medical settings, delivering a strong return on your $59,900 investment.",
   },
 ]
 
@@ -37,8 +37,9 @@ export function FinancingSection() {
             Flexible financing to fit your practice
           </h2>
           <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
-            Investing in the Vital Sphere 360 2.0 ATA chamber is a significant decision — we make it easier with
-            plans designed to suit different budgets so you can start offering HBOT sooner.
+            The MitoBooster XL starts at <strong className="text-foreground">$59,900</strong>, with business
+            financing available for as low as <strong className="text-foreground">$1,301/mo</strong> through
+            our trusted financing partner — so you can start offering red light therapy sooner.
           </p>
           <div className="mt-6">
             <FinancingDialog />

@@ -1,33 +1,30 @@
-import { Activity, HeartPulse, ShieldPlus } from "lucide-react"
+import { Zap, HeartPulse, Sparkles, Leaf } from "lucide-react"
 
 const benefits = [
   {
-    icon: Activity,
-    title: "Faster Recovery",
+    icon: Zap,
+    title: "Cellular Rejuvenation & Energy",
     description:
-      "Increased oxygen levels at 2.0 ATA promote quicker healing for injuries, surgeries, and chronic wounds while enhancing tissue repair.",
+      "Enhances mitochondrial function and ATP production for increased energy throughout the body.",
   },
   {
     icon: HeartPulse,
-    title: "Improved Circulation",
+    title: "Pain Relief & Recovery",
     description:
-      "HBOT boosts oxygen delivery to tissues, improving circulation and supporting overall cardiovascular health throughout the body.",
+      "Reduces inflammation and supports faster recovery from injury, surgery, or intense physical activity.",
   },
   {
-    icon: ShieldPlus,
-    title: "Enhanced Immune Function",
+    icon: Sparkles,
+    title: "Skin Health & Appearance",
     description:
-      "Higher oxygen levels strengthen the body's immune response, helping patients fight infections and recover more effectively.",
+      "Stimulates collagen production, improving skin elasticity and texture.",
   },
-]
-
-const applications = [
-  "Chronic wounds and ulcers",
-  "Sports injuries and muscle strains",
-  "Chronic pain and inflammation",
-  "Fatigue and low energy levels",
-  "Post-surgical recovery",
-  "Neurological conditions & TBIs",
+  {
+    icon: Leaf,
+    title: "Additional Wellness Support",
+    description:
+      "May support metabolism, hair growth, sleep quality, and overall well-being with regular use.",
+  },
 ]
 
 export function BenefitsSection() {
@@ -41,7 +38,7 @@ export function BenefitsSection() {
           </h2>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {benefits.map((benefit) => (
             <div key={benefit.title} className="rounded-2xl border-2 border-blue-200 bg-card p-8">
               <span className="flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
@@ -51,25 +48,6 @@ export function BenefitsSection() {
               <p className="mt-3 leading-relaxed text-muted-foreground">{benefit.description}</p>
             </div>
           ))}
-        </div>
-
-        <div className="mt-12 rounded-2xl border border-border bg-card p-8 sm:p-10">
-          <h3 className="text-xl font-semibold">Versatile applications</h3>
-          <p className="mt-2 max-w-2xl leading-relaxed text-muted-foreground">
-            The ability to deliver high-pressure oxygen therapy at 2.0 ATA makes this chamber effective
-            for a wide range of health and wellness protocols:
-          </p>
-          <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {applications.map((item) => (
-              <li
-                key={item}
-                className="flex items-center gap-3 rounded-lg border border-border bg-background px-4 py-3 text-sm font-medium"
-              >
-                <span className="size-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-                {item}
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </section>
