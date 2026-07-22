@@ -53,6 +53,11 @@ const specTable = [
 
 const certifications = [
   {
+    name: "ASME Compliant — U Stamp",
+    description:
+      "The chamber is built to the ASME Boiler and Pressure Vessel Code and carries the ASME U Stamp, certifying that the pressure vessel is designed, fabricated, and inspected to recognized safety standards for pressurized equipment.",
+  },
+  {
     name: "CE Marking",
     description:
       "Declares that the chamber conforms to European Union health, safety, and environmental protection standards, allowing it to be sold and operated within the European Economic Area.",
@@ -71,11 +76,6 @@ const certifications = [
     name: "ISO 13485",
     description:
       "The globally recognized quality management standard for medical devices, ensuring rigorous design, production, and regulatory compliance for medical-grade equipment.",
-  },
-  {
-    name: "ASME Compliant — U Stamp",
-    description:
-      "The chamber is built to the ASME Boiler and Pressure Vessel Code and carries the ASME U Stamp, certifying that the pressure vessel is designed, fabricated, and inspected to recognized safety standards for pressurized equipment.",
   },
   {
     name: "PED Certified — CE 0036",
