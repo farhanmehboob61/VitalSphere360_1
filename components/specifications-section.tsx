@@ -77,6 +77,11 @@ const certifications = [
     description:
       "The chamber is built to the ASME Boiler and Pressure Vessel Code and carries the ASME U Stamp, certifying that the pressure vessel is designed, fabricated, and inspected to recognized safety standards for pressurized equipment.",
   },
+  {
+    name: "PED Certified — CE 0036",
+    description:
+      "Certified compliant with the European Pressure Equipment Directive (PED) under notified body 0036, confirming the pressure vessel meets EU safety, design, and conformity assessment requirements for pressurized equipment.",
+  },
 ]
 
 export function SpecificationsSection() {
@@ -220,6 +225,14 @@ export function SpecificationsSection() {
               alt="ASME certification mark — American Society of Mechanical Engineers U Stamp"
               width={220}
               height={140}
+              className="h-16 w-auto object-contain sm:h-20"
+            />
+            <Image
+              src="/images/ped-mark.png"
+              alt="PED certification seal — Pressure Equipment Directive Certified Compliant, CE 0036"
+              width={240}
+              height={240}
+              loading="lazy"
               className="h-16 w-auto object-contain sm:h-20"
             />
           </div>
