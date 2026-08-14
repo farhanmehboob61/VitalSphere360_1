@@ -43,7 +43,7 @@ export function ControlPanelViewer() {
               alt={slide.alt}
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
-              className={`object-cover transition-opacity duration-700 ${
+              className={`object-contain transition-opacity duration-700 ${
                 i === index ? "opacity-100" : "opacity-0"
               }`}
             />
