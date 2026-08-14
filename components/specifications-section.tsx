@@ -1,4 +1,6 @@
 import Image from "next/image"
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
 
 const chamberSpecs = [
   "2.0 ATA | 15 PSI | 100 kPa",
@@ -52,11 +54,6 @@ const specTable = [
 ]
 
 const certifications = [
-  {
-    name: "ASME Compliant — U Stamp",
-    description:
-      "The chamber is built to the ASME Boiler and Pressure Vessel Code and carries the ASME U Stamp, certifying that the pressure vessel is designed, fabricated, and inspected to recognized safety standards for pressurized equipment.",
-  },
   {
     name: "CE Marking",
     description:
@@ -235,6 +232,35 @@ export function SpecificationsSection() {
               loading="lazy"
               className="h-16 w-auto object-contain sm:h-20"
             />
+          </div>
+
+          {/* ASME — elevated as the lead certification with a dedicated learn-more path */}
+          <div className="mt-6 flex flex-col gap-5 rounded-xl border border-primary/20 bg-accent/40 p-6 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-start gap-4">
+              <Image
+                src="/images/asme-mark.png"
+                alt=""
+                width={64}
+                height={64}
+                aria-hidden="true"
+                className="h-12 w-12 shrink-0 object-contain sm:h-14 sm:w-14"
+              />
+              <div>
+                <dt className="text-base font-bold tracking-tight">ASME Compliant — U Stamp</dt>
+                <dd className="mt-1.5 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+                  The chamber is built to the ASME Boiler and Pressure Vessel Code and carries the ASME U
+                  Stamp, certifying that the pressure vessel is designed, fabricated, and inspected to
+                  recognized safety standards for pressurized equipment.
+                </dd>
+              </div>
+            </div>
+            <Link
+              href="/ASME"
+              className="inline-flex shrink-0 items-center gap-1.5 self-start text-sm font-semibold text-primary hover:underline sm:self-center"
+            >
+              Learn About Our ASME Certification
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
           </div>
 
           <dl className="mt-6 grid gap-6 sm:grid-cols-2">
