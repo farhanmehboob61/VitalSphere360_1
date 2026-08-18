@@ -86,7 +86,7 @@ export default function AsmePage() {
                 <p className="mt-6 text-sm font-semibold uppercase tracking-widest text-primary">
                   Safety &amp; Engineering
                 </p>
-                <h1 className="mt-3 text-balance text-4xl font-bold tracking-tight sm:text-5xl">
+                  <h1 className="mt-3 text-balance text-4xl font-bold tracking-tight sm:text-5xl">
                   ASME Certified Pressure Vessels
                 </h1>
                 <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
@@ -124,6 +124,15 @@ export default function AsmePage() {
                     priority
                     sizes="(min-width: 1024px) 40vw, (min-width: 640px) 24rem, 20rem"
                     className="relative mx-auto h-auto w-full max-w-xs object-contain sm:max-w-sm"
+                  />
+                  <Image
+                    src="/images/asme-ustamp.webp"
+                    alt="ASME U Stamp certification badge"
+                    width={96}
+                    height={96}
+                    loading="lazy"
+                    sizes="96px"
+                    className="absolute bottom-10 right-8 size-16 rounded-full border border-border bg-background/95 p-1.5 shadow-sm sm:bottom-12 sm:right-12 sm:size-20"
                   />
                   <span className="absolute right-6 top-6 rounded-full border border-border bg-background px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest text-muted-foreground sm:right-8 sm:top-8">
                     Pressure Vessel
