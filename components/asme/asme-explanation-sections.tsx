@@ -87,7 +87,7 @@ export function AsmeExplanationSections() {
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">Why ASME Matters</p>
             <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight sm:text-4xl">
-              Built as a pressure vessel, not just a chamber.
+              Oxygen chambers, built by us to ASME standards
             </h2>
             <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
               A hyperbaric chamber operates at pressures above normal atmospheric pressure. Because of
