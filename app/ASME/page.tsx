@@ -84,24 +84,26 @@ export default function AsmePage() {
                   className="h-16 w-auto object-contain"
                 />
                 <p className="mt-6 text-sm font-semibold uppercase tracking-widest text-primary">
-                  Safety &amp; Engineering
+                  Built for real-world use
                 </p>
-                  <h1 className="mt-3 text-balance text-4xl font-bold tracking-tight sm:text-5xl">
-                  ASME Certified Pressure Vessels
+                <h1 className="mt-3 max-w-xl text-balance text-4xl font-bold tracking-tight sm:text-5xl">
+                  Oxygen chambers, built by us to ASME standards
                 </h1>
-                <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-                  A hyperbaric chamber is more than a wellness device — it is a pressure vessel designed to
-                  safely operate under elevated pressure. Vital Sphere chambers are manufactured to rigorous
-                  pressure-vessel standards and carry the ASME U Stamp, providing independent verification of
-                  critical manufacturing, inspection, and quality-control requirements.
+                <p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">
+                  We build the Vital Sphere 360 as a pressure vessel first. The ASME U Stamp reflects the work
+                  behind the shell: controlled materials, documented fabrication, inspection, and pressure testing
+                  before a chamber leaves our facility.
                 </p>
-                <div className="mt-8">
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   <Button asChild size="lg">
                     <a href="#why-asme-matters" className="flex items-center gap-2">
-                      Explore the ASME Standard
+                      See how we build it
                       <span aria-hidden="true">↓</span>
                     </a>
                   </Button>
+                  <a href="tel:+16308127865" className="inline-flex items-center justify-center px-2 text-sm font-semibold text-primary hover:underline">
+                    Talk to an engineer
+                  </a>
                 </div>
               </div>
 
