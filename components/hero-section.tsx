@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import { Rotate3D } from "lucide-react"
 
 const HERO_SRCSET =
   "/images/vital-sphere-360-hero-800.webp 800w, /images/vital-sphere-360-hero-1200.webp 1200w, /images/vital-sphere-360-hero-1600.webp 1600w"
@@ -58,6 +59,12 @@ export function HeroSection() {
               </Button>
               <Button size="lg" variant="outline" className="w-full sm:w-auto sm:px-8" asChild>
                 <a href="tel:+16308127865">Call +1 (630) 812-7865</a>
+              </Button>
+              <Button size="lg" variant="outline" className="w-full gap-2 sm:w-auto sm:px-8" asChild>
+                <a href="#3d-model">
+                  <Rotate3D className="size-4" aria-hidden="true" />
+                  View in 3D
+                </a>
               </Button>
             </div>
           </div>
