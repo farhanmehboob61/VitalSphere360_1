@@ -41,7 +41,7 @@ export function Product3DSection() {
   }, [])
 
   return (
-    <section id="3d-model" className="border-b border-border bg-background">
+    <section id="model-3d" className="border-b border-border bg-background">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-widest text-primary">Interactive 3D Model</p>
