@@ -41,7 +41,7 @@ export function Product3DSection() {
   }, [])
 
   return (
-    <section className="border-b border-border bg-background">
+    <section id="model-3d" className="border-b border-border bg-background">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-widest text-primary">Interactive 3D Model</p>
@@ -58,7 +58,7 @@ export function Product3DSection() {
           ref={containerRef}
           className="mt-10 overflow-hidden rounded-2xl border-2 border-blue-200 bg-card p-2 sm:p-3"
         >
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-gradient-to-br from-slate-50 via-slate-100 to-slate-200 sm:aspect-[16/10]">
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-100 sm:aspect-[16/10]">
             {hasLoaded ? (
               <ProductModelViewer isActive={isInView} />
             ) : (
