@@ -11,6 +11,9 @@ const OverviewSection = dynamic(() =>
 const FeaturesSection = dynamic(() =>
   import("@/components/features-section").then((m) => m.FeaturesSection)
 )
+const Product3DSection = dynamic(() =>
+  import("@/components/product-3d-section").then((m) => m.Product3DSection)
+)
 const OptionalFeaturesSection = dynamic(() =>
   import("@/components/optional-features-section").then((m) => m.OptionalFeaturesSection)
 )
@@ -42,6 +45,7 @@ export default function Page() {
         <HeroSection />
         <OverviewSection />
         <FeaturesSection />
+        <Product3DSection />
         <OptionalFeaturesSection />
         <InteriorLiningSection />
         <SpecificationsSection />
