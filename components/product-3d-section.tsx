@@ -58,7 +58,7 @@ export function Product3DSection() {
           ref={containerRef}
           className="mt-10 overflow-hidden rounded-2xl border-2 border-blue-200 bg-card p-2 sm:p-3"
         >
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-gradient-to-br from-slate-50 via-slate-100 to-slate-200 sm:aspect-[16/10]">
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-100 sm:aspect-[16/10]">
             {hasLoaded ? (
               <ProductModelViewer isActive={isInView} />
             ) : (
